@@ -1,3 +1,3 @@
-# IE6511_HW1
+# IE6511_HW
 
-Algorithms, Complexity, and Randomized Search
+Heuristics
