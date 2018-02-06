@@ -1,3 +1,3 @@
 # IE6511_HW
 
-Heuristics
+Heuristics & Global Optimization
