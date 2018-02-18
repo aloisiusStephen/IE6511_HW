@@ -1,16 +1,19 @@
-function [CostBest] = DDS(x_min,x_max,m,x_initial)
+function [CostBest,Cost_iter] = DDS(x_min,x_max,m,x_initial)
 r=0.2;
 sBest=x_initial;
 sCur=x_initial;
 CostBest=bump(sBest);
 dimen=length(x_initial);
+Cost_iter=zeros(m,1);
 x_range=x_max-x_min;
 k=0;
 for i=1:m
+    sCur=sBest;
+    Cost_iter(i)=CostBest;
     for j=1:dimen
         if (rand(1)<(1-(log(i)/log(m))))
             k=k+1;
-            sCur(j)=sCur(j)+randn(1,1)*r*(x_range);
+            sCur(j)=sBest(j)+randn(1,1)*r*(x_range);
             if(sCur(j)<x_min)
                 sCur(j)=x_min+(x_min-sCur(j));
                 if(sCur(j)>x_max)
@@ -27,7 +30,7 @@ for i=1:m
     end
     if(k==0)
         index=randi([1,dimen],1);
-        sCur(index)=sCur(index)+randn(1,1)*r*(x_range);
+        sCur(index)=sBest(index)+randn(1,1)*r*(x_range);
             if(sCur(index)<x_min)
                 sCur(index)=x_min+(x_min-sCur(index));
                 if(sCur(index)>x_max)
