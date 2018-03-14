@@ -11782,7 +11782,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -11896,7 +11896,7 @@ D.  Uses the surrogate surface to help pick the point for the expensive evaluati
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -12226,7 +12226,7 @@ eQQaAAAQeQQaAAAQeQQaAAAQeQQaAAAQef8/9j+aB8Z1LlEAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## RBF Criterion</span>
@@ -12240,6 +12240,7 @@ eQQaAAAQeQQaAAAQeQQaAAAQeQQaAAAQef8/9j+aB8Z1LlEAAAAASUVORK5CYII=
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
     <span class="n">rbfCrit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">candf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">candf</span><span class="p">))</span><span class="o">/</span><span class="n">rbfRange</span>    
     
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;rbf score:&quot;</span><span class="p">,</span><span class="n">rbfCrit</span><span class="p">)</span>
 <span class="c1">## Distance Criterion</span>
 <span class="n">candDist</span><span class="p">,</span> <span class="n">distCrit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">dist0</span><span class="p">,</span><span class="n">dist1</span><span class="p">,</span><span class="n">dist2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -12254,8 +12255,8 @@ eQQaAAAQeQQaAAAQeQQaAAAQeQQaAAAQef8/9j+aB8Z1LlEAAAAASUVORK5CYII=
 
 <span class="n">distRange</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">candDist</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">candDist</span><span class="p">))</span>  
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
-    <span class="n">distCrit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">candDist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">candDist</span><span class="p">))</span><span class="o">/</span><span class="n">distRange</span>  
-    
+    <span class="n">distCrit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">candDist</span><span class="p">)</span> <span class="o">-</span> <span class="n">candDist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span><span class="o">/</span><span class="n">distRange</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;distance score:&quot;</span><span class="p">,</span><span class="n">distCrit</span><span class="p">)</span>
 <span class="c1">## Weighted score with RBF weight = 0.4</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sum of Weighted scores for Point (2,8) = </span><span class="si">%.4f</span><span class="s2">&quot;</span> 
       <span class="o">%</span><span class="p">(</span><span class="n">distCrit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mf">0.6</span> <span class="o">+</span> <span class="n">rbfCrit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mf">0.4</span><span class="p">)</span> <span class="p">)</span>
@@ -12279,9 +12280,11 @@ eQQaAAAQeQQaAAAQeQQaAAAQeQQaAAAQef8/9j+aB8Z1LlEAAAAASUVORK5CYII=
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Sum of Weighted scores for Point (2,8) = 1.0000
-Sum of Weighted scores for Point (2,6) = 0.1905
-Sum of Weighted scores for Point (4,0) = 0.2821
+<pre>rbf score: [ 1.     0.476  0.   ]
+distance score: [ 0.    1.    0.53]
+Sum of Weighted scores for Point (2,8) = 0.4000
+Sum of Weighted scores for Point (2,6) = 0.7905
+Sum of Weighted scores for Point (4,0) = 0.3179
 </pre>
 </div>
 </div>
@@ -12294,7 +12297,7 @@ Sum of Weighted scores for Point (4,0) = 0.2821
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Therefore the point (2,6) should be selected since it has the smallest sum of weighted scores</p>
+<p>Therefore the point (4,0) should be selected since it has the smallest sum of weighted scores</p>
 
 </div>
 </div>
